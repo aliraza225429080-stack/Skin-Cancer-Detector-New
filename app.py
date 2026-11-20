@@ -8,8 +8,8 @@ import os
 st.set_page_config(page_title="Skin Cancer Classification App", layout="centered")
 
 st.title("🩺 Skin Cancer Classification Web App")
-st.markdown("**Made by: Ali Raza**")
-st.write("Roll No: 480 / University:SUPERIOR UNIVERSITY GOLD CAMPUS")
+st.markdown("**Made by: Ali Raza S/O Tasleem Iqbal**")
+st.write("Roll No:SU92-BSCSM-F26-480 / University:SUPERIOR UNIVERSITY GOLD CAMPUS")
 st.write("Upload an image of a skin lesion to analyze it using our trained Convolutional Neural Network (CNN).")
 
 # 1. Load Pretrained Assets
