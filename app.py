@@ -61,9 +61,14 @@ else:
                 
                 img_array = np.array(img_resized, dtype=np.float32)
                 img_array = np.expand_dims(img_array, axis=0)  # Shape (1, 224, 224, 3)
-                
-                # Make prediction
-                prediction_prob = model.predict(img_array)[0][0]
+                # Make prediction - TFLite model ke liye
+                input_details = model.get_input_details()
+                output_details = model.get_output_details()
+                model.set_tensor(input_details[0]['index'], img_array)
+                model.invoke()
+                prediction_prob = model.get_tensor(output_details[0]['index'])[0][0]
+            
+            
                 
                 st.subheader("Result & Confidence Analysis")
                 if prediction_prob >= 0.5:
