@@ -14,12 +14,12 @@ st.write("Upload an image of a skin lesion to analyze it using our trained Convo
 @st.cache_resource
 def load_assets():
     # Load CNN Keras model
-    model_path = 'CNN_MODELS.keras'
+    model_path = 'model.tflite'
     if os.path.exists(model_path):
-        model = tf.keras.models.load_model(model_path)
+        model = tf.lite.Interpreter(model_path=model_path)
+        model.allocate_tensors()
     else:
-        model = None
-    
+        model=None
     # Load Tabular preprocessing assets if needed
     scaler_path = 'scaler.pkl'
     if os.path.exists(scaler_path):
